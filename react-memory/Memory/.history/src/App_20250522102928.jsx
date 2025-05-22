@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <div className='title'>
+      <div>
         
         improve your memory and have some fun
       
