@@ -1,8 +1,7 @@
 import React from 'react';
-import './Button.css';
 
 const NewGameButton = ({ onNewGame }) => (
-    <button  className='new-game-button' onClick={onNewGame}>
+    <button  classonClick={onNewGame}>
         Nouvelle Partie
     </button>
 );
