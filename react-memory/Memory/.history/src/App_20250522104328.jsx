@@ -6,9 +6,11 @@ import Cards from './components/Cards';
 function App() {
   const [gameStarted, setGameStarted] = useState(false)
 
-  
+  // Dummy cards for demons
 
   const startNewGame = () => {
+    // Shuffle and reset cards
+    const shuffled = [...initialCards].sort(() => Math.random() - 0.5)
    
     setGameStarted(true)
   }

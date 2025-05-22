@@ -9,7 +9,7 @@ function App() {
   
 
   const startNewGame = () => {
-   
+    // Shuffle and re   
     setGameStarted(true)
   }
 

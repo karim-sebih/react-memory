@@ -8,10 +8,7 @@ function App() {
 
   
 
-  const startNewGame = () => {
-   
-    setGameStarted(true)
-  }
+
 
   return (
     <>

@@ -4,14 +4,10 @@ import NewGameButton from './components/Button.jsx'
 import Cards from './components/Cards';
 
 function App() {
-  const [gameStarted, setGameStarted] = useState(false)
-
+ 
   
 
-  const startNewGame = () => {
-   
-    setGameStarted(true)
-  }
+
 
   return (
     <>

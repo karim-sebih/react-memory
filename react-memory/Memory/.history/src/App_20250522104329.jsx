@@ -9,6 +9,8 @@ function App() {
   
 
   const startNewGame = () => {
+    // Shuffle and reset cards
+    const shuffled = [...initialCards].sort(() => Math.random() - 0.5)
    
     setGameStarted(true)
   }
