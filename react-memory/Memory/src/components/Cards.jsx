@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
-function Cards() {
+import { RestartButton } from "./Button";
+function Cards({ onResetGame }) {
     const [items, setItems] = useState([
         { id: 1, img: "/img/angry-birds.png", stat: "" },
         { id: 1, img: "/img/angry-birds.png", stat: "" },
@@ -25,7 +26,15 @@ function Cards() {
     ].sort(() => Math.random() - 0.5))
 
     const [prev, setPrev] = useState(-1)
-
+    const [gameCompleted, setGameCompleted] = useState(false)
+       useEffect(() => {
+        const allMatched = items.every(item => item.stat === "correct");
+        console.log("Items:", items); // Debug: Log the items array
+        console.log("All matched:", allMatched); // Debug: Log if all items are matched
+        if (allMatched && items.length > 0) {
+            setGameCompleted(true);
+        }
+    }, [items]);
     function check(current) {
     // Prevent matching a card with itself
     if (current === prev) {
@@ -51,7 +60,7 @@ function Cards() {
             setPrev(-1);
         }, 1000);
     }
-}
+}   
     
     function handleClick(id) {
     // Prevent clicking on already revealed cards or the same card twice
@@ -68,13 +77,20 @@ function Cards() {
     }
 }
 
-    return (
+   return (
         <div className="container">
-            {items.map((item, index) => (
-                <Card key={index} item={item} id={index} handleClick={handleClick}/>
-            ))}
-         </div>
-
+            {gameCompleted ? (
+                <div className="game-completed">
+                    <h2>Félicitations ! Vous avez gagné !</h2>
+                    <RestartButton onResetGame={onResetGame} />
+                </div>
+            ) : (
+                items.map((item, index) => (
+                    <Card key={index} item={item} id={index} handleClick={handleClick} />
+                ))
+            )}
+        </div>
     )
+    
 }
 export default Cards;
