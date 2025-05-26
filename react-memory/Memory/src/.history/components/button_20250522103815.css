@@ -1,0 +1,17 @@
+.new-game-button {
+  background-color: #1dffec; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.new-game-button:hover {
+  background-color: #1dffec;
+  color: white;
+  box-shadow: 0 0 10px #1dffec, 0 0 20px #1dffec, 0 0 30px #1dffec;
+}
