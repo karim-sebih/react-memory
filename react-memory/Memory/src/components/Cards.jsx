@@ -26,33 +26,45 @@ function Cards() {
 
     const [prev, setPrev] = useState(-1)
 
-    function check(current){
-        if(items[current].id == items[prev].id){
-            items[current].stat = "correct"
-            items[prev].stat = "correct"
-            setItems([...items])
-            setPrev(-1)
-        }else{
-            items[current].stat = "wrong"
-            items[prev].stat = "wrong"
-            setItems([...items])
-            setTimeout(() => {
-                items[current].stat = ""
-                items[prev].stat = ""
-                setItems([...items])
-                setPrev(-1)
-            }, 1000)
-        }
+    function check(current) {
+    // Prevent matching a card with itself
+    if (current === prev) {
+        items[current].stat = "";
+        setItems([...items]);
+        setPrev(-1);
+        return;
     }
+
+    if (items[current].id === items[prev].id) {
+        items[current].stat = "correct";
+        items[prev].stat = "correct";
+        setItems([...items]);
+        setPrev(-1);
+    } else {
+        items[current].stat = "wrong";
+        items[prev].stat = "wrong";
+        setItems([...items]);
+        setTimeout(() => {
+            items[current].stat = "";
+            items[prev].stat = "";
+            setItems([...items]);
+            setPrev(-1);
+        }, 1000);
+    }
+}
     
     function handleClick(id) {
-        if (prev === -1) {
-            items[id].stat = "active"
-            setItems([...items])
-            setPrev(id)
-            
-        }else{
-            check(id)
+    // Prevent clicking on already revealed cards or the same card twice
+    if (items[id].stat === "correct" || prev === id) {
+        return;
+    }
+
+    if (prev === -1) {
+        items[id].stat = "active";
+        setItems([...items]);
+        setPrev(id);
+    } else {
+        check(id);
     }
 }
 

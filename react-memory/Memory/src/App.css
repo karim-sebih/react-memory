@@ -1,47 +1,4 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
 
 .title {
   font-size: 1em;
@@ -61,7 +18,7 @@ body {
 
 body {
   font-family: Verdana, sans-serif;
-  background-color: #fb4f93;
+  background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,21 +26,21 @@ body {
 
 h1 {
   color: #fff;
-  font-size: 50px;
+  font-size: 40px;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 }
 
 h3{
   color: #fff;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .container {
-  height: 500px;
-  width: 500px;
+  height: 400px;
+  width: 400px;
   /* background-color: #00e6e4; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -111,8 +68,8 @@ h3{
 }
 
 .card img{
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 70%;
+  max-height: 70%;
   transform: scale(0);
   animation:2s hideImage linear;
    transition:transform 0.5s;
