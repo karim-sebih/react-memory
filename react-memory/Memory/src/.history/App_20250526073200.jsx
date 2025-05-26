@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { NewGameButton, RestartButton } from './components/Button.jsx'
+import NewGameButton from './components/Button.jsx'
 import Cards from './components/Cards';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
         <NewGameButton onNewGame={startNewGame} />
       ) : (
         <div>
-          <div className='title'>
+          <div className="App">
             <h1>Memory Game</h1>
             <h3>Try to match all the pairs of cards!</h3>
             <Cards onResetGame={resetGame} />

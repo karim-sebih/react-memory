@@ -1,15 +1,5 @@
 .new-game-button {
-  background-color: #1dffec; 
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
+
 
 .new-game-button:hover {
   background-color: #1dffec;
@@ -18,7 +8,7 @@
 }
 
 .restart-button {
-  background-color: #1dffec; 
+  background-color: #2ecc71; /* A green shade for "Rejouer" */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -29,7 +19,6 @@
   margin: 4px 2px;
   cursor: pointer;
 }
-
 
 .restart-button:hover {
   background-color: #27ae60; /* Darker green on hover */

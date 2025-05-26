@@ -30,9 +30,8 @@ function Cards({ onResetGame }) {
     const [gameCompleted, setGameCompleted] = useState(false)
 
     useEffect(() => {
+        // Check if all cards are matched
         const allMatched = items.every(item => item.stat === "correct");
-        console.log("Items:", items); // Debug: Log the items array
-        console.log("All matched:", allMatched); // Debug: Log if all items are matched
         if (allMatched && items.length > 0) {
             setGameCompleted(true);
         }
@@ -40,42 +39,30 @@ function Cards({ onResetGame }) {
 
     function check(current) {
         if (items[current].id === items[prev].id) {
-            setItems(prevItems => {
-                const newItems = [...prevItems];
-                newItems[current] = { ...newItems[current], stat: "correct" };
-                newItems[prev] = { ...newItems[prev], stat: "correct" };
-                return newItems;
-            });
-            setPrev(-1);
+            items[current].stat = "correct"
+            items[prev].stat = "correct"
+            setItems([...items])
+            setPrev(-1)
         } else {
-            setItems(prevItems => {
-                const newItems = [...prevItems];
-                newItems[current] = { ...newItems[current], stat: "wrong" };
-                newItems[prev] = { ...newItems[prev], stat: "wrong" };
-                return newItems;
-            });
+            items[current].stat = "wrong"
+            items[prev].stat = "wrong"
+            setItems([...items])
             setTimeout(() => {
-                setItems(prevItems => {
-                    const newItems = [...prevItems];
-                    newItems[current] = { ...newItems[current], stat: "" };
-                    newItems[prev] = { ...newItems[prev], stat: "" };
-                    return newItems;
-                });
-                setPrev(-1);
-            }, 1000);
+                items[current].stat = ""
+                items[prev].stat = ""
+                setItems([...items])
+                setPrev(-1)
+            }, 1000)
         }
     }
-
+    
     function handleClick(id) {
         if (prev === -1) {
-            setItems(prevItems => {
-                const newItems = [...prevItems];
-                newItems[id] = { ...newItems[id], stat: "active" };
-                return newItems;
-            });
-            setPrev(id);
+            items[id].stat = "active"
+            setItems([...items])
+            setPrev(id)
         } else {
-            check(id);
+            check(id)
         }
     }
 
@@ -94,5 +81,4 @@ function Cards({ onResetGame }) {
         </div>
     )
 }
-
 export default Cards;

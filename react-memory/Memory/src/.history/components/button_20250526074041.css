@@ -18,7 +18,7 @@
 }
 
 .restart-button {
-  background-color: #1dffec; 
+  background-color: #2ecc71; /* A green shade for "Rejouer" */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -29,7 +29,6 @@
   margin: 4px 2px;
   cursor: pointer;
 }
-
 
 .restart-button:hover {
   background-color: #27ae60; /* Darker green on hover */
